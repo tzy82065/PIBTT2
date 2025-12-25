@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_hca.dir/tests/test_hca.cpp.o CMakeFiles/test_hca.dir/third_party/googletest/googletest/src/gtest_main.cc.o -o test_hca  pibt2/liblib-mapf.a lib/libgtest.a pibt2/graph/liblib-graph.a 

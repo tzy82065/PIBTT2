@@ -1,0 +1,11 @@
+map_file=room-64-64-8.map
+agents=5
+seed=0
+random_problem=0
+max_timestep=500
+max_comp_time=3000
+39,36,21,58
+57,38,4,39
+54,3,19,0
+15,17,46,17
+23,28,21,13

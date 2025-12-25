@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_tp.dir/tests/test_tp.cpp.o CMakeFiles/test_tp.dir/third_party/googletest/googletest/src/gtest_main.cc.o -o test_tp  pibt2/liblib-mapf.a lib/libgtest.a pibt2/graph/liblib-graph.a 

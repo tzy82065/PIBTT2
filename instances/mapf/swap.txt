@@ -1,0 +1,8 @@
+map_file=swap.map
+agents=2
+seed=0
+random_problem=0
+max_timestep=500
+max_comp_time=3000
+1,1,1,2
+1,2,1,1

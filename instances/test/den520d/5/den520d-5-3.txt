@@ -1,0 +1,11 @@
+map_file=den520d.map
+agents=5
+seed=0
+random_problem=0
+max_timestep=1000
+max_comp_time=3000
+86,217,249,10
+34,188,6,202
+138,7,158,56
+71,204,216,72
+78,212,101,157
