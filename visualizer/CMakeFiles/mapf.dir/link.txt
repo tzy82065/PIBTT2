@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/mapf.dir/mapf.cpp.o -o mapf  pibt2/liblib-mapf.a pibt2/graph/liblib-graph.a 

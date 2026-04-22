@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scalable Iterative Multi-Agent Path Finding under Turn Constraints</title>
+    <!-- 引入 Tailwind CSS 进行快速样式设计 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 FontAwesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 设置字体 -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* 自定义 PDF 阅读器容器高度 */
+        .pdf-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 比例 */
+        }
+        .pdf-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-800 antialiased">
+
+    <!-- 导航/头部 -->
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        
+        <!-- 标题部分 -->
+        <header class="text-center mb-12">
+            <h1 class="text-xl md:text-2xl font-bold mb-6 text-slate-900 leading-tight">
+                Scalable Iterative Multi-Agent Path Finding under Turn Constraints <br class="hidden md:block" />
+            </h1>
+        </header>
+
+        <!-- 摘要 (Abstract) -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-4 border-b pb-2 border-gray-200">Abstract</h2>
+            <p class="text-justify leading-relaxed text-slate-700">
+                Multi-Agent Path Finding with turn actions (MAPF\textsubscript{T}) enables more realistic planning for mobile robots by explicitly modeling orientation changes and turn delays. However, these turn constraints enlarge the state space and break the immediate node-vacation assumption behind classical iterative solvers, posing major challenges to real-time planning in large-scale systems. This paper proposes an efficient iterative solver that extends priority inheritance with backtracking to MAPF\textsubscript{T}. The method preserves the lightweight single-timestep planning mechanism of PIBT while introducing turn-aware action updates and dedicated mechanisms for handling cyclic dependencies, deadlocks, and inefficient repeated pushing. Experimental results on standard MAPF benchmarks show that PIBT$^{\text{*}}_{\text{T}}$ substantially improves runtime and scalability over existing MAPF\textsubscript{T} solvers, and solves instances with up to 1{,}000 agents within seconds. A realistic flexible manufacturing system case study further shows that, compared with classical MAPF planners that ignore turn actions, the proposed method not only yields plans whose estimated costs better match actual execution, but also achieves lower actual execution cost.
+            </p>
+        </section>
+
+        <!-- 从业者指南 (Note to Practitioners) -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-4 border-b pb-2 border-gray-200">Note to Practitioners</h2>
+            <p class="text-justify leading-relaxed text-slate-700">
+                In warehouse logistics and manufacturing transport systems, mobile robots often need to rotate in place before moving in the desired direction. If this turning overhead is ignored during planning, the resulting schedules can be overly optimistic and may not match actual execution well. The method proposed in this paper incorporates turn costs directly into the planning stage, producing routes that better reflect the kinematic behavior of real robots. This reduces the mismatch between planned and actual execution and can also lower the actual execution cost compared with classical MAPF plans that ignore turn actions. The method is computationally efficient and can generate coordinated plans for hundreds of robots within milliseconds, making it suitable for dense and dynamic environments that require frequent replanning. It is particularly relevant to automated warehouses, flexible manufacturing systems, and related multi-robot transport scenarios where turning delays cannot be neglected.
+            </p>
+        </section>
+
+        <!-- 视频 (scalable test) - 修复版 -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-200">Large-scale scenario with up to 1000 agents</h2>
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="aspect-video bg-black">
+                    <video controls class="w-full h-full object-contain">
+                        <source src="assets/1k_agents_in_warehouse.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- 视频 (Case Study) - 修复版 -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-200">Case Study using SMART</h2>
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="aspect-video bg-black">
+                    <video controls class="w-full h-full object-contain">
+                        <source src="assets/simulation_in_smart.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

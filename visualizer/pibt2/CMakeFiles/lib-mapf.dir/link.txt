@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblib-mapf.a "CMakeFiles/lib-mapf.dir/src/hca.cpp.o" "CMakeFiles/lib-mapf.dir/src/paths.cpp.o" "CMakeFiles/lib-mapf.dir/src/pibt.cpp.o" "CMakeFiles/lib-mapf.dir/src/pibt_mapd.cpp.o" "CMakeFiles/lib-mapf.dir/src/pibt_plus.cpp.o" "CMakeFiles/lib-mapf.dir/src/plan.cpp.o" "CMakeFiles/lib-mapf.dir/src/problem.cpp.o" "CMakeFiles/lib-mapf.dir/src/push_and_swap.cpp.o" "CMakeFiles/lib-mapf.dir/src/solver.cpp.o" "CMakeFiles/lib-mapf.dir/src/tp.cpp.o"
+/usr/bin/ranlib liblib-mapf.a

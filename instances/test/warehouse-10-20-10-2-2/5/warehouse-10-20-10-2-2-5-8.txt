@@ -1,0 +1,11 @@
+map_file=warehouse-10-20-10-2-2.map
+agents=5
+seed=0
+random_problem=0
+max_timestep=1000
+max_comp_time=3000
+147,44,159,80
+37,70,86,73
+18,37,166,1
+73,39,100,29
+144,71,99,42

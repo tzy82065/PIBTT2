@@ -1,0 +1,8 @@
+map_file=random-32-32-20.map
+agents=2
+seed=0
+random_problem=0
+max_timestep=500
+max_comp_time=3000
+17,20,16,31
+6,7,17,31

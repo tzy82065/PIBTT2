@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblib-graph.a "CMakeFiles/lib-graph.dir/src/graph.cpp.o" "CMakeFiles/lib-graph.dir/src/node.cpp.o" "CMakeFiles/lib-graph.dir/src/pos.cpp.o"
+/usr/bin/ranlib liblib-graph.a
