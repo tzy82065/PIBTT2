@@ -29,6 +29,30 @@
             border: 1px solid #e5e7eb;
             border-radius: 0.5rem;
         }
+        /* 修正上下标样式，确保在任何字体下都能正确显示 */
+        sup, sub {
+            font-size: 0.75em;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+        sup {
+            top: -0.5em;
+        }
+        sub {
+            bottom: -0.25em;
+        }
+        /* 为 abstract 中需要上标的文字提供精确控制 */
+        .abstract-sup {
+            font-size: 0.75em;
+            vertical-align: super;
+            line-height: normal;
+        }
+        .abstract-sub {
+            font-size: 0.75em;
+            vertical-align: sub;
+            line-height: normal;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-slate-800 antialiased">
@@ -41,13 +65,37 @@
             <h1 class="text-xl md:text-2xl font-bold mb-6 text-slate-900 leading-tight">
                 Scalable Iterative Multi-Agent Path Finding under Turn Constraints <br class="hidden md:block" />
             </h1>
+            
+            <!-- 顶部链接按钮组 (新增) -->
+            <div class="flex flex-wrap justify-center gap-4">
+                <!-- Supplementary File 链接 (可根据实际仓库路径替换) -->
+                <a href="https://github.com/tzy82065/PIBTT2/blob/main/SupplementaryFile.pdf" class="flex items-center gap-2 bg-slate-800 text-white px-4 py-2 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fa-solid fa-file-lines"></i> Supplementary File
+                </a>
+                <!-- Code 链接 -->
+                <a href="https://github.com/tzy82065/PIBTT2" class="flex items-center gap-2 bg-slate-800 text-white px-4 py-2 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fa-brands fa-github"></i> Code
+                </a>
+                <!-- 可选：保留原有 Paper 风格示例，如需要论文PDF可取消注释 -->
+                <!-- 
+                <a href="https://github.com/tzy82065/PIBTT2/blob/main/paper.pdf" class="flex items-center gap-2 bg-slate-800 text-white px-4 py-2 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fa-solid fa-file-pdf"></i> Paper
+                </a>
+                -->
+            </div>
         </header>
 
-        <!-- 摘要 (Abstract) -->
+        <!-- 投稿说明注释 (新增：在Abstract上方) -->
+        <div class="mb-6 text-center text-sm text-gray-500 border border-gray-200 rounded-lg p-3 bg-gray-50">
+            <i class="fa-regular fa-newspaper mr-1"></i> 
+            This page is for paper "Scalable Iterative Multi-Agent Path Finding under Turn Constraints" submitted to IEEE Transactions on Automation Science and Engineering (TASE).
+        </div>
+
+        <!-- 摘要 (Abstract) - 已修正上下标 -->
         <section class="mb-16">
             <h2 class="text-2xl font-bold mb-4 border-b pb-2 border-gray-200">Abstract</h2>
             <p class="text-justify leading-relaxed text-slate-700">
-                Multi-Agent Path Finding with turn actions (MAPF\textsubscript{T}) enables more realistic planning for mobile robots by explicitly modeling orientation changes and turn delays. However, these turn constraints enlarge the state space and break the immediate node-vacation assumption behind classical iterative solvers, posing major challenges to real-time planning in large-scale systems. This paper proposes an efficient iterative solver that extends priority inheritance with backtracking to MAPF\textsubscript{T}. The method preserves the lightweight single-timestep planning mechanism of PIBT while introducing turn-aware action updates and dedicated mechanisms for handling cyclic dependencies, deadlocks, and inefficient repeated pushing. Experimental results on standard MAPF benchmarks show that PIBT$^{\text{*}}_{\text{T}}$ substantially improves runtime and scalability over existing MAPF\textsubscript{T} solvers, and solves instances with up to 1{,}000 agents within seconds. A realistic flexible manufacturing system case study further shows that, compared with classical MAPF planners that ignore turn actions, the proposed method not only yields plans whose estimated costs better match actual execution, but also achieves lower actual execution cost.
+                Multi-Agent Path Finding with turn actions (MAPF<span class="abstract-sub">T</span>) enables more realistic planning for mobile robots by explicitly modeling orientation changes and turn delays. However, these turn constraints enlarge the state space and break the immediate node-vacation assumption behind classical iterative solvers, posing major challenges to real-time planning in large-scale systems. This paper proposes an efficient iterative solver that extends priority inheritance with backtracking to MAPF<span class="abstract-sub">T</span>. The method preserves the lightweight single-timestep planning mechanism of PIBT while introducing turn-aware action updates and dedicated mechanisms for handling cyclic dependencies, deadlocks, and inefficient repeated pushing. Experimental results on standard MAPF benchmarks show that PIBT<span class="abstract-sub">T</span><span class="abstract-sup">*</span> substantially improves runtime and scalability over existing MAPF<span class="abstract-sub">T</span> solvers, and solves instances with up to 1,000 agents within seconds. A realistic flexible manufacturing system case study further shows that, compared with classical MAPF planners that ignore turn actions, the proposed method not only yields plans whose estimated costs better match actual execution, but also achieves lower actual execution cost.
             </p>
         </section>
 
