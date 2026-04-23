@@ -53,6 +53,65 @@
             vertical-align: sub;
             line-height: normal;
         }
+        /* 为概括图添加优雅的阴影和圆角过渡效果 */
+        .graphical-figure {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .graphical-figure:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.15);
+        }
+        /* 保证概括图在移动端不溢出 */
+        .graphical-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        /* 贡献列表自定义样式：淡化默认圆点，改用简约的勾选图标 */
+        .contribution-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .contribution-list li {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        .contribution-list li i {
+            margin-top: 0.2rem;
+            color: #2563eb;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .contribution-list li span {
+            line-height: 1.5;
+        }
+        /* 数值结果图片容器样式：左对齐配文，适当留白 */
+        .result-figure {
+            margin-bottom: 2.5rem;
+        }
+        .result-figure img {
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e9ecef;
+            background-color: #ffffff;
+        }
+        .fig-caption {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #334155;
+            text-align: left;   /* 明确左对齐 */
+        }
+        .subfig-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;  /* 非常小的间隙上下摆放 */
+            margin-bottom: 0.75rem;
+        }
+        .subfig-group img {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-slate-800 antialiased">
@@ -66,9 +125,9 @@
                 Scalable Iterative Multi-Agent Path Finding under Turn Constraints <br class="hidden md:block" />
             </h1>
             
-            <!-- 顶部链接按钮组 (新增) -->
+            <!-- 顶部链接按钮组 -->
             <div class="flex flex-wrap justify-center gap-4">
-                <!-- Supplementary File 链接 (可根据实际仓库路径替换) -->
+                <!-- Supplementary File 链接 -->
                 <a href="https://github.com/tzy82065/PIBTT2/blob/main/SupplementaryFile.pdf" class="flex items-center gap-2 bg-slate-800 text-white px-4 py-2 rounded-lg hover:bg-slate-700 transition">
                     <i class="fa-solid fa-file-lines"></i> Supplementary File
                 </a>
@@ -76,30 +135,71 @@
                 <a href="https://github.com/tzy82065/PIBTT2" class="flex items-center gap-2 bg-slate-800 text-white px-4 py-2 rounded-lg hover:bg-slate-700 transition">
                     <i class="fa-brands fa-github"></i> Code
                 </a>
-                <!-- 可选：保留原有 Paper 风格示例，如需要论文PDF可取消注释 -->
-                <!-- 
-                <a href="https://github.com/tzy82065/PIBTT2/blob/main/paper.pdf" class="flex items-center gap-2 bg-slate-800 text-white px-4 py-2 rounded-lg hover:bg-slate-700 transition">
-                    <i class="fa-solid fa-file-pdf"></i> Paper
-                </a>
-                -->
             </div>
         </header>
 
-        <!-- 投稿说明注释 (新增：在Abstract上方) -->
+        <!-- 投稿说明注释 -->
         <div class="mb-6 text-center text-sm text-gray-500 border border-gray-200 rounded-lg p-3 bg-gray-50">
             <i class="fa-regular fa-newspaper mr-1"></i> 
             This page is for paper "Scalable Iterative Multi-Agent Path Finding under Turn Constraints" submitted to IEEE Transactions on Automation Science and Engineering (TASE).
         </div>
 
-        <!-- 摘要 (Abstract) - 已修正上下标 -->
-        <section class="mb-16">
+        <!-- 概括图（Graphical Abstract） -->
+        <div class="mb-12 graphical-container">
+            <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden graphical-figure">
+                <figure class="p-2 md:p-3">
+                    <img 
+                        src="assets/graphical_abstract_new.png" 
+                        alt="Graphical abstract: Scalable iterative MAPF under turn constraints" 
+                        class="w-full h-auto rounded-xl shadow-sm"
+                        loading="eager"
+                        onerror="this.onerror=null; this.alt='[Graphical Abstract Image Failed to Load]'; this.parentElement.classList.add('bg-gray-100');"
+                    >
+                </figure>
+            </div>
+        </div>
+
+        <!-- 摘要 Abstract -->
+        <section class="mb-12">
             <h2 class="text-2xl font-bold mb-4 border-b pb-2 border-gray-200">Abstract</h2>
             <p class="text-justify leading-relaxed text-slate-700">
                 Multi-Agent Path Finding with turn actions (MAPF<span class="abstract-sub">T</span>) enables more realistic planning for mobile robots by explicitly modeling orientation changes and turn delays. However, these turn constraints enlarge the state space and break the immediate node-vacation assumption behind classical iterative solvers, posing major challenges to real-time planning in large-scale systems. This paper proposes an efficient iterative solver that extends priority inheritance with backtracking to MAPF<span class="abstract-sub">T</span>. The method preserves the lightweight single-timestep planning mechanism of PIBT while introducing turn-aware action updates and dedicated mechanisms for handling cyclic dependencies, deadlocks, and inefficient repeated pushing. Experimental results on standard MAPF benchmarks show that PIBT<span class="abstract-sub">T</span><span class="abstract-sup">*</span> substantially improves runtime and scalability over existing MAPF<span class="abstract-sub">T</span> solvers, and solves instances with up to 1,000 agents within seconds. A realistic flexible manufacturing system case study further shows that, compared with classical MAPF planners that ignore turn actions, the proposed method not only yields plans whose estimated costs better match actual execution, but also achieves lower actual execution cost.
             </p>
         </section>
 
-        <!-- 从业者指南 (Note to Practitioners) -->
+        <!-- Contribution 摘要区块 -->
+        <section class="mb-16">
+            <div class="bg-blue-50/40 rounded-xl border border-blue-100 p-5 md:p-6 shadow-sm">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-800">
+                    <i class="fa-regular fa-star text-blue-600"></i> 
+                    Contributions
+                </h2>
+                <ul class="contribution-list space-y-2">
+                    <li>
+                        <i class="fa-regular fa-circle-check"></i>
+                        <span><strong class="font-semibold">Scalable iterative solver for MAPF<span class="abstract-sub">T</span></strong> – Extending PIBT with priority inheritance and backtracking to handle turn constraints efficiently.</span>
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-circle-check"></i>
+                        <span><strong class="font-semibold">Explicit turn-aware action model</strong> – Incorporating orientation changes and turn delays directly into the planning stage for more realistic robot coordination.</span>
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-circle-check"></i>
+                        <span><strong class="font-semibold">Cycle handling + SPD + PET</strong> – Dedicated mechanisms to resolve cyclic dependencies, prevent deadlocks, and mitigate inefficient repeated pushing.</span>
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-circle-check"></i>
+                        <span><strong class="font-semibold">Solves up to 1,000 agents within seconds</strong> – Demonstrating exceptional scalability in large-scale MAPF<span class="abstract-sub">T</span> benchmarks.</span>
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-circle-check"></i>
+                        <span><strong class="font-semibold">Practical case study on FMS</strong> – Validating the approach in a realistic flexible manufacturing system by simulator with full robot dynamics.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 从业者指南 Note to Practitioners -->
         <section class="mb-16">
             <h2 class="text-2xl font-bold mb-4 border-b pb-2 border-gray-200">Note to Practitioners</h2>
             <p class="text-justify leading-relaxed text-slate-700">
@@ -107,30 +207,86 @@
             </p>
         </section>
 
-        <!-- 视频 (scalable test) - 修复版 -->
+        <!-- ========= 新增 Numerical results 章节 ========= -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-200">Numerical results</h2>
+            
+            <!-- 1. subplot_new.pdf: 成功率对比 -->
+            <div class="result-figure">
+                <img src="assets/subplot_new.png" alt="Success rate comparison: PIBT*_T vs existing MAPF_T solvers" class="w-full rounded-xl border border-gray-200 shadow-sm">
+                <div class="fig-caption">
+                    This figure shows that <span class="font-mono font-semibold">PIBT<span class="abstract-sub">T</span><span class="abstract-sup">*</span></span> consistently achieves higher success rates than existing MAPF<span class="abstract-sub">T</span> solvers, especially in dense and challenging scenarios, while preserving high solution quality.
+                </div>
+            </div>
+            
+            <!-- 2. runtime.png: 运行时对比 (表格) -->
+            <div class="result-figure">
+                <img src="assets/runtime.png" alt="Runtime comparison: PIBT*_T vs search-based baselines" class="w-full rounded-xl border border-gray-200 shadow-sm">
+                <div class="fig-caption">
+                    This table shows that <span class="font-mono font-semibold">PIBT<span class="abstract-sub">T</span><span class="abstract-sup">*</span></span> achieves substantially lower runtime than search-based baselines, making it suitable for real-time planning.
+                </div>
+            </div>
+            
+            <!-- 3. success_rate_1k.pdf 与 runtime_1k.pdf 以非常小的间隙上下摆放 -->
+            <div class="result-figure">
+                <div class="subfig-group">
+                    <img src="assets/success_rate_1k.png" alt="Success rate for 1,000 agents" class="w-full rounded-xl border border-gray-200 shadow-sm">
+                    <img src="assets/runtime_1k.png" alt="Runtime for 1,000 agents" class="w-full rounded-xl border border-gray-200 shadow-sm">
+                </div>
+                <div class="fig-caption">
+                    These figures show that <span class="font-mono font-semibold">PIBT<span class="abstract-sub">T</span><span class="abstract-sup">*</span></span> scales to 1,000 agents with high success rates and low runtime.
+                </div>
+            </div>
+            
+            <!-- 4. fms_case_study.pdf: 制造场景案例 -->
+            <div class="result-figure">
+                <img src="assets/fms_case_study.png" alt="Case study in flexible manufacturing system: turn-aware planning finishes tasks earlier" class="w-full rounded-xl border border-gray-200 shadow-sm">
+                <div class="fig-caption">
+                    This figure shows that turn-aware planning produces solutions that better match realistic robot dynamics and finish tasks earlier in practical manufacturing scenarios.
+                </div>
+            </div>
+        </section>
+
+        <!-- 视频 (scalable test) -->
         <section class="mb-16">
             <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-200">Large-scale scenario with up to 1000 agents</h2>
             <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                 <div class="aspect-video bg-black">
                     <video controls class="w-full h-full object-contain">
                         <source src="assets/1k_agents_in_warehouse.mp4" type="video/mp4">
+                        您的浏览器不支持 video 标签。请升级浏览器或使用现代浏览器播放此视频。
                     </video>
+                </div>
+                <div class="p-3 bg-gray-50 text-xs text-gray-500 text-center border-t border-gray-200">
+                    <i class="fa-regular fa-clock mr-1"></i> This video demonstrates the scalability of the proposed method in a dense warehouse map. Even with 1,000 agents, the planner generates coordinated conflict-free motions efficiently, showing its suitability for large-scale real-time MAPF<span class="abstract-sub">T</span> scenarios.
                 </div>
             </div>
         </section>
 
-        <!-- 视频 (Case Study) - 修复版 -->
+        <!-- 视频 (Case Study) -->
         <section class="mb-16">
             <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-200">Case Study using SMART</h2>
             <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                 <div class="aspect-video bg-black">
                     <video controls class="w-full h-full object-contain">
                         <source src="assets/simulation_in_smart.mp4" type="video/mp4">
+                        您的浏览器不支持 video 标签。请升级浏览器以查看案例视频。
                     </video>
+                </div>
+                <div class="p-3 bg-gray-50 text-xs text-gray-500 text-center border-t border-gray-200">
+                    <i class="fa-regular fa-building mr-1"></i> This video presents a case study in a flexible manufacturing system, where AGVs execute transport tasks and the planned paths are evaluated in SMART, a simulation platform with realistic robot dynamics, including turning, acceleration, and deceleration. Compared with PIBT<span class="abstract-sub">T</span>, <span class="font-mono">PIBT<span class="abstract-sub">T</span><span class="abstract-sup">*</span></span> completes all transport tasks earlier by explicitly accounting for turn actions during planning. The video also shows that the PET module in <span class="font-mono">PIBT<span class="abstract-sub">T</span><span class="abstract-sup">*</span></span> effectively mitigates inefficient repeated pushing, leading to smoother and more efficient execution.
                 </div>
             </div>
         </section>
 
+        <!-- 简短的亮点脚注 -->
+        <div class="mt-6 pt-4 border-t border-gray-200 text-center text-sm text-gray-400">
+            <span class="inline-flex items-center gap-3 flex-wrap justify-center">
+                <span class="inline-flex items-center gap-1"><i class="fa-regular fa-gem text-indigo-400"></i> <strong class="text-slate-600">Key:</strong> Turn‑aware PIBT</span>
+                <span class="inline-flex items-center gap-1"><i class="fa-regular fa-chart-line text-green-500"></i> 1000 agents / seconds</span>
+                <span class="inline-flex items-center gap-1"><i class="fa-regular fa-circle-check text-blue-500"></i> Backtracking + priority inheritance</span>
+            </span>
+        </div>
     </div>
 
 </body>
