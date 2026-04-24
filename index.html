@@ -112,6 +112,24 @@
         .subfig-group img {
             margin-bottom: 0;
         }
+        /* 新增：四个视频叠放时每个视频组的样式 */
+        .benchmark-video-item {
+            margin-bottom: 2rem;
+        }
+        .benchmark-video-item:last-child {
+            margin-bottom: 0;
+        }
+        .video-caption {
+            text-align: center;
+            font-style: italic;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #4b5563;
+        }
+        /* 视频描述左对齐样式覆盖 */
+        .video-desc-left {
+            text-align: left !important;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-slate-800 antialiased">
@@ -211,7 +229,7 @@
         <section class="mb-16">
             <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-200">Numerical results</h2>
             
-            <!-- 1. subplot_new.pdf: 成功率对比 -->
+            <!-- 1. subplot_new.png: 成功率对比 -->
             <div class="result-figure">
                 <img src="assets/subplot_new.png" alt="Success rate comparison: PIBT*_T vs existing MAPF_T solvers" class="w-full rounded-xl border border-gray-200 shadow-sm">
                 <div class="fig-caption">
@@ -227,7 +245,7 @@
                 </div>
             </div>
             
-            <!-- 3. success_rate_1k.pdf 与 runtime_1k.pdf 以非常小的间隙上下摆放 -->
+            <!-- 3. success_rate_1k.png 与 runtime_1k.png 上下摆放 -->
             <div class="result-figure">
                 <div class="subfig-group">
                     <img src="assets/success_rate_1k.png" alt="Success rate for 1,000 agents" class="w-full rounded-xl border border-gray-200 shadow-sm">
@@ -238,7 +256,7 @@
                 </div>
             </div>
             
-            <!-- 4. fms_case_study.pdf: 制造场景案例 -->
+            <!-- 4. fms_case_study.png: 制造场景案例 -->
             <div class="result-figure">
                 <img src="assets/fms_case_study.png" alt="Case study in flexible manufacturing system: turn-aware planning finishes tasks earlier" class="w-full rounded-xl border border-gray-200 shadow-sm">
                 <div class="fig-caption">
@@ -247,7 +265,7 @@
             </div>
         </section>
 
-        <!-- 视频 (scalable test) -->
+        <!-- 视频 (scalable test) 描述改为左对齐 -->
         <section class="mb-16">
             <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-200">Large-scale scenario with up to 1000 agents</h2>
             <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
@@ -257,13 +275,70 @@
                         您的浏览器不支持 video 标签。请升级浏览器或使用现代浏览器播放此视频。
                     </video>
                 </div>
-                <div class="p-3 bg-gray-50 text-xs text-gray-500 text-center border-t border-gray-200">
+                <div class="p-3 bg-gray-50 text-xs text-gray-500 border-t border-gray-200 video-desc-left">
                     <i class="fa-regular fa-clock mr-1"></i> This video demonstrates the scalability of the proposed method in a dense warehouse map. Even with 1,000 agents, the planner generates coordinated conflict-free motions efficiently, showing its suitability for large-scale real-time MAPF<span class="abstract-sub">T</span> scenarios.
                 </div>
             </div>
         </section>
 
-        <!-- 视频 (Case Study) -->
+        <!-- ========= 新增：Simulation video on other 4 benchmark maps ========= -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-200">Simulation video on other 4 benchmark maps</h2>
+            
+            <!-- video 1: empty.mp4 -->
+            <div class="benchmark-video-item">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="aspect-video bg-black">
+                        <video controls class="w-full h-full object-contain">
+                            <source src="assets/empty.mp4" type="video/mp4">
+                            您的浏览器不支持 video 标签。
+                        </video>
+                    </div>
+                </div>
+                <div class="video-caption">empty-32-32</div>
+            </div>
+            
+            <!-- video 2: random.mp4 -->
+            <div class="benchmark-video-item">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="aspect-video bg-black">
+                        <video controls class="w-full h-full object-contain">
+                            <source src="assets/random.mp4" type="video/mp4">
+                            您的浏览器不支持 video 标签。
+                        </video>
+                    </div>
+                </div>
+                <div class="video-caption">random-32-32-20</div>
+            </div>
+            
+            <!-- video 3: room.mp4 -->
+            <div class="benchmark-video-item">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="aspect-video bg-black">
+                        <video controls class="w-full h-full object-contain">
+                            <source src="assets/room.mp4" type="video/mp4">
+                            您的浏览器不支持 video 标签。
+                        </video>
+                    </div>
+                </div>
+                <div class="video-caption">room-64-64-8</div>
+            </div>
+            
+            <!-- video 4: den520d.mp4 -->
+            <div class="benchmark-video-item">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="aspect-video bg-black">
+                        <video controls class="w-full h-full object-contain">
+                            <source src="assets/den520d.mp4" type="video/mp4">
+                            您的浏览器不支持 video 标签。
+                        </video>
+                    </div>
+                </div>
+                <div class="video-caption">den520d</div>
+            </div>
+        </section>
+
+        <!-- 视频 (Case Study) 描述改为左对齐 -->
         <section class="mb-16">
             <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-200">Case Study using SMART</h2>
             <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
@@ -273,21 +348,11 @@
                         您的浏览器不支持 video 标签。请升级浏览器以查看案例视频。
                     </video>
                 </div>
-                <div class="p-3 bg-gray-50 text-xs text-gray-500 text-center border-t border-gray-200">
+                <div class="p-3 bg-gray-50 text-xs text-gray-500 border-t border-gray-200 video-desc-left">
                     <i class="fa-regular fa-building mr-1"></i> This video presents a case study in a flexible manufacturing system, where AGVs execute transport tasks and the planned paths are evaluated in SMART, a simulation platform with realistic robot dynamics, including turning, acceleration, and deceleration. Compared with PIBT<span class="abstract-sub">T</span>, <span class="font-mono">PIBT<span class="abstract-sub">T</span><span class="abstract-sup">*</span></span> completes all transport tasks earlier by explicitly accounting for turn actions during planning. The video also shows that the PET module in <span class="font-mono">PIBT<span class="abstract-sub">T</span><span class="abstract-sup">*</span></span> effectively mitigates inefficient repeated pushing, leading to smoother and more efficient execution.
                 </div>
             </div>
         </section>
-
-        <!-- 简短的亮点脚注 -->
-        <div class="mt-6 pt-4 border-t border-gray-200 text-center text-sm text-gray-400">
-            <span class="inline-flex items-center gap-3 flex-wrap justify-center">
-                <span class="inline-flex items-center gap-1"><i class="fa-regular fa-gem text-indigo-400"></i> <strong class="text-slate-600">Key:</strong> Turn‑aware PIBT</span>
-                <span class="inline-flex items-center gap-1"><i class="fa-regular fa-chart-line text-green-500"></i> 1000 agents / seconds</span>
-                <span class="inline-flex items-center gap-1"><i class="fa-regular fa-circle-check text-blue-500"></i> Backtracking + priority inheritance</span>
-            </span>
-        </div>
-    </div>
 
 </body>
 </html>
