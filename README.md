@@ -1,7 +1,7 @@
 # PIBTT2
 Code and Supplementary files for "Scalable Iterative Multi-Agent Path Finding under Turn Constraints"
 
-This respository consists of a code pack including a supplementary file `PIBTT2/SupplementaryFile` for paper "Scalable Iterative Multi-Agent Path Finding under Turn Constraints", which is submitted to IEEE Transactions on Automation Science and Engineering (TASE).
+This respository consists of a code pack including a supplementary file `PIBTT2/SupplementaryFile` for paper "Scalable Iterative Multi-Agent Path Finding under Turn Constraints", which is submitted to IEEE Transactions on Systems, Man, and Cybernetics: Systems.
 
 ## Author, Copyright and Acknowledgement
 The code is based on Okumura's implementation of PIBT (https://github.com/Kei18/pibt2/), which exhibits significant high-speed and scalability in classic MAPF and MAPD problems.
